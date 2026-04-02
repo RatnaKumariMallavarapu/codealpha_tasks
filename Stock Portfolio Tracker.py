@@ -13,7 +13,7 @@ stock_prices = {
 }
 
 print("\n" + "="*60)
-print("🚀 STOCK PORTFOLIO TRACKER")
+print(" STOCK PORTFOLIO TRACKER")
 print("="*60)
 print("Built with Python • Real-time style report • File export ready")
 print(f"Report generated on: {datetime.datetime.now().strftime('%A, %B %d, %Y %I:%M %p')}")
@@ -31,16 +31,16 @@ while True:
         break
     
     if ticker not in stock_prices:
-        print("❌ Stock not found in database. Please use one of the available tickers above.")
+        print(" Stock not found in database. Please use one of the available tickers above.")
         continue
     
     try:
         quantity = float(input(f"➤ Enter quantity of {ticker} shares: "))
         if quantity <= 0:
-            print("❌ Quantity must be greater than zero.")
+            print(" Quantity must be greater than zero.")
             continue
     except ValueError:
-        print("❌ Please enter a valid number for quantity.")
+        print(" Please enter a valid number for quantity.")
         continue
     
     price = stock_prices[ticker]
@@ -53,14 +53,14 @@ while True:
     }
     
     total_value += value
-    print(f"✅ Added: {quantity:.2f} shares of {ticker} @ ${price:.2f} = ${value:,.2f}\n")
+    print(f" Added: {quantity:.2f} shares of {ticker} @ ${price:.2f} = ${value:,.2f}\n")
 
 # === FINAL PORTFOLIO SUMMARY ===
 if not portfolio:
-    print("\n⚠️  No stocks added. Portfolio is empty.")
+    print("\n  No stocks added. Portfolio is empty.")
 else:
     print("\n" + "="*60)
-    print("📊 FINAL PORTFOLIO SUMMARY")
+    print(" FINAL PORTFOLIO SUMMARY")
     print("="*60)
     print(f"{'Ticker':<8} {'Shares':<10} {'Price':<12} {'Value ($)':<15} {'Allocation'}")
     print("-"*60)
@@ -75,7 +75,7 @@ else:
     print("🎉 Well done! Your portfolio is now tracked perfectly.")
 
 # === OPTIONAL FILE SAVE ===
-save_choice = input("\n💾 Would you like to save this report? (y/n): ").strip().lower()
+save_choice = input("\n Would you like to save this report? (y/n): ").strip().lower()
 if save_choice == "y":
     # Save as CSV (easy to open in Excel)
     csv_filename = "portfolio_report.csv"
@@ -102,10 +102,10 @@ if save_choice == "y":
         f.write("="*60 + "\n")
         f.write("Thank you for using Stock Portfolio Tracker!\n")
     
-    print(f"✅ Files saved successfully!")
-    print(f"   📄 portfolio_report.csv  (open in Excel)")
-    print(f"   📝 portfolio_summary.txt  (clean text report)")
-    print("\n🎯 You can now email/share these files instantly!")
+    print(f" Files saved successfully!")
+    print(f"   portfolio_report.csv  (open in Excel)")
+    print(f"    portfolio_summary.txt  (clean text report)")
+    print("\n You can now email/share these files instantly!")
 
 print("\n" + "="*60)
 print("Thank you for using Stock Portfolio Tracker!")
